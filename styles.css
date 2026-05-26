@@ -896,16 +896,17 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
    The nav is 60px. We subtract it so the chat fills exactly
    the remaining visible screen with no overflow or scroll.
    dvh accounts for mobile browser chrome (address bar).     */
-#page-adminchat {
+/* Chat page height lock — display is controlled by .page/.page.active
+   We only set dimensions and overflow here, never display:flex directly
+   because that would override the .page { display:none } rule          */
+#page-adminchat.active {
   height: calc(100vh - 60px);
   height: calc(100dvh - 60px);
   max-height: calc(100vh - 60px);
   overflow: hidden;
   flex: none;
-  display: flex;
-  flex-direction: column;
 }
-#page-adminchat .page-inner {
+#page-adminchat.active .page-inner {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -916,8 +917,8 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
   flex-shrink: 0;
 }
 
-/* ---- Chat layout base (shared by both variants) ---- */
-.chat-layout {
+/* ---- Chat layout base — scoped to adminchat page only ---- */
+#page-adminchat .chat-layout {
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -980,8 +981,8 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
 /* ---- MOBILE chat overrides ---- */
 @media (max-width: 600px) {
 
-  /* Full viewport height lock on mobile — subtract nav height */
-  #page-adminchat {
+  /* Full viewport height lock on mobile — only when active */
+  #page-adminchat.active {
     height: calc(100vh - 54px);
     height: calc(100dvh - 54px);
     max-height: calc(100vh - 54px);
