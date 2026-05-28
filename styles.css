@@ -1231,3 +1231,15 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
   border-top: 1px solid var(--border);
   margin-top: 1rem;
 }
+
+/* ============================================================
+   REFLECTION PAGE — byline
+   ============================================================ */
+.reflection-byline {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text3);
+  font-style: italic;
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem 0;
+}
