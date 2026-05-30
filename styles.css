@@ -1256,3 +1256,293 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
 #consult-disclaimer-modal strong {
   font-style: normal;
 }
+
+/* ============================================================
+   LIGHT THEME — warm amber palette
+   Applied via [data-theme="light"] on <html>
+   ============================================================ */
+[data-theme="light"] {
+  --bg:          #fff3d4;
+  --bg2:         #ffedd9;
+  --bg3:         #f5e2c4;
+  --bg4:         #ecd5b0;
+  --border:      rgba(41,36,31,0.09);
+  --border2:     rgba(41,36,31,0.16);
+  --text:        #29241f;
+  --text2:       #5a4a3a;
+  --text3:       #9a8472;
+  --accent:      #b06a20;
+  --accent2:     #8f5218;
+  --accent-dim:  rgba(176,106,32,0.12);
+  --accent-dim2: rgba(176,106,32,0.07);
+  --footer-bg:   #f0dcb8;
+}
+
+/* Smooth theme transition on everything except images */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* Don't transition transforms/opacity — breaks animations */
+.feature-card, .landing-post-card, .msg-bubble {
+  transition: background-color 0.25s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease,
+              transform 0.22s ease;
+}
+
+/* ============================================================
+   FEATURE CARDS — replaces pillars
+   ============================================================ */
+.feature-cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 720px;
+}
+
+.feature-card {
+  position: relative;
+  flex: 1;
+  background: var(--bg2);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  /* Subtle inner glow border effect */
+  outline: 1.5px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, outline-color 0.22s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+  outline-color: var(--accent);
+}
+
+/* Radial glow behind icon */
+.feature-card-glow {
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feature-card:hover .feature-card-glow { opacity: 1; }
+
+.feature-card-icon {
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.feature-card-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.feature-card-desc {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ============================================================
+   LANDING SECTIONS — community + reflection previews
+   ============================================================ */
+.landing-section {
+  width: 100%;
+  padding: 3rem 2rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.landing-section-last {
+  padding-bottom: 3rem;
+}
+.landing-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.landing-section-title {
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text);
+  font-weight: normal;
+}
+.landing-section-link {
+  font-size: 12px;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s;
+}
+.landing-section-link:hover { opacity: 0.75; }
+
+/* 3-column card grid */
+.landing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Skeleton loader */
+.landing-card-skeleton {
+  border-radius: 14px;
+  background: var(--bg2);
+  height: 160px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* Post preview card */
+.landing-post-card {
+  background: var(--bg2);
+  border-radius: 14px;
+  padding: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 160px;
+}
+.landing-post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+}
+.landing-post-card-kicker {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent2);
+  text-transform: uppercase;
+}
+.landing-post-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.landing-post-card-preview {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.65;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: italic;
+}
+.landing-post-card-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   THEME SWITCH — in profile page
+   ============================================================ */
+.profile-theme-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.profile-theme-label {
+  font-size: 13px;
+  color: var(--text2);
+}
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.theme-switch-track {
+  position: relative;
+  width: 52px;
+  height: 26px;
+  background: var(--bg3);
+  border-radius: 9999px;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.theme-switch-dark,
+.theme-switch-light {
+  font-size: 12px;
+  color: var(--text3);
+  z-index: 1;
+  line-height: 1;
+}
+.theme-switch-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.25s ease;
+}
+/* Light mode: slide thumb to right */
+[data-theme="light"] .theme-switch-thumb {
+  transform: translateX(26px);
+}
+.theme-switch-current {
+  font-size: 12px;
+  color: var(--text3);
+  min-width: 28px;
+}
+
+/* ============================================================
+   RESPONSIVE — landing sections
+   ============================================================ */
+@media (max-width: 600px) {
+  .feature-cards {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .feature-card { border-radius: 16px; padding: 1.25rem 1.25rem; }
+  .landing-section { padding: 2rem 1rem 0; }
+  .landing-section-last { padding-bottom: 2rem; }
+  .landing-cards-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .feature-cards { max-width: 100%; }
+  .landing-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Hide third card on tablet for cleaner 2-col look */
+  .landing-cards-grid .landing-post-card:nth-child(3),
+  .landing-cards-grid .landing-card-skeleton:nth-child(3) {
+    display: none;
+  }
+}
