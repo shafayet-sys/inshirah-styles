@@ -1262,20 +1262,399 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
    Applied via [data-theme="light"] on <html>
    ============================================================ */
 html[data-theme="light"] {
+  /* Backgrounds — warm amber cream */
   --bg:          #fff3d4;
   --bg2:         #ffedd9;
   --bg3:         #f5e2c4;
   --bg4:         #ecd5b0;
-  --border:      rgba(41,36,31,0.09);
-  --border2:     rgba(41,36,31,0.16);
-  --text:        #29241f;
-  --text2:       #5a4a3a;
-  --text3:       #9a8472;
+
+  /* Borders — rich dark brown tones */
+  --border:      rgba(41,36,31,0.10);
+  --border2:     rgba(41,36,31,0.20);
+
+  /* Text — deep warm browns, all readable on cream */
+  --text:        #1e1a15;   /* near-black warm */
+  --text2:       #3d3028;   /* mid brown — was too light */
+  --text3:       #7a6250;   /* muted label — still legible */
+
+  /* Accent — warm amber-orange */
   --accent:      #b06a20;
   --accent2:     #8f5218;
-  --accent-dim:  rgba(176,106,32,0.12);
-  --accent-dim2: rgba(176,106,32,0.07);
+  --accent-dim:  rgba(176,106,32,0.14);
+  --accent-dim2: rgba(176,106,32,0.08);
+
+  /* Footer */
   --footer-bg:   #f0dcb8;
+}
+
+/* ---- Hardcoded color overrides for light mode ----
+   These elements use fixed hex colors that are invisible
+   on the warm cream background. Override them all here.  */
+
+/* Nav links — were #d4d0ca (light grey, invisible on cream) */
+html[data-theme="light"] .nav-link {
+  color: #3d3028;
+}
+html[data-theme="light"] .nav-link:hover {
+  color: #1e1a15;
+}
+html[data-theme="light"] .nav-logo {
+  color: #1e1a15;
+}
+
+/* Nav mobile panel */
+html[data-theme="light"] .nav-mobile-panel {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.20);
+}
+html[data-theme="light"] .nav-mobile-panel .nav-link {
+  color: #3d3028;
+  border-right-color: rgba(41,36,31,0.10);
+}
+
+/* Nav background — slightly warm to distinguish from page */
+html[data-theme="light"] nav {
+  background: #ffe8c8;
+  border-bottom-color: rgba(41,36,31,0.12);
+}
+
+/* Landing title — was #ffffff (pure white, invisible on cream) */
+html[data-theme="light"] .landing-title {
+  color: #1e1a15;
+}
+
+/* Landing subtitle — was #c8c4bc (light grey) */
+html[data-theme="light"] .landing-sub {
+  color: #3d3028;
+}
+
+/* Landing description — was #8a8680 (mid grey) */
+html[data-theme="light"] .landing-desc {
+  color: #5a4538;
+}
+
+/* Landing eyebrow — keep accent but ensure readability */
+html[data-theme="light"] .landing-eyebrow {
+  color: var(--accent2);
+  font-weight: 700;
+}
+
+/* Feature cards on light */
+html[data-theme="light"] .feature-card {
+  background: #fff3d4;
+  box-shadow: 0 4px 20px rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .feature-card:hover {
+  box-shadow: 0 12px 36px rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .feature-card-label {
+  color: #1e1a15;
+}
+html[data-theme="light"] .feature-card-desc {
+  color: #7a6250;
+}
+
+/* Section headers */
+html[data-theme="light"] .section-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .section-sub {
+  color: #7a6250;
+}
+
+/* Thread items */
+html[data-theme="light"] .thread-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .thread-preview {
+  color: #3d3028;
+}
+html[data-theme="light"] .thread-meta span {
+  color: #7a6250;
+}
+html[data-theme="light"] .thread-item:hover {
+  background: #ffedd9;
+}
+
+/* Sidebar */
+html[data-theme="light"] .forum-sidebar {
+  background: #fff3d4;
+}
+html[data-theme="light"] .sidebar-label {
+  color: #7a6250;
+}
+html[data-theme="light"] .sidebar-note {
+  color: #3d3028;
+}
+
+/* Chat */
+html[data-theme="light"] .chat-header-name {
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-header-status {
+  color: #7a6250;
+}
+html[data-theme="light"] .msg.them .msg-bubble {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.15);
+  color: #1e1a15;
+}
+html[data-theme="light"] .msg.me .msg-bubble {
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-user-name {
+  color: #3d3028;
+}
+html[data-theme="light"] .chat-snippet {
+  color: #7a6250;
+}
+html[data-theme="light"] .privacy-note {
+  color: #7a6250;
+}
+
+/* Spirituality */
+html[data-theme="light"] .article-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .article-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .article-kicker {
+  color: var(--accent2);
+}
+html[data-theme="light"] .article-footer {
+  color: #7a6250;
+}
+
+/* Ambitions */
+html[data-theme="light"] .ach-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .ach-user,
+html[data-theme="light"] .ach-date {
+  color: #7a6250;
+}
+html[data-theme="light"] .achievement-card {
+  background: #fff3d4;
+  box-shadow: 0 2px 12px rgba(41,36,31,0.08);
+}
+html[data-theme="light"] .achievement-card:hover {
+  background: #ffedd9;
+}
+
+/* Profile page */
+html[data-theme="light"] .profile-card-username {
+  color: #1e1a15;
+}
+html[data-theme="light"] .profile-card-role {
+  color: #7a6250;
+}
+html[data-theme="light"] .profile-theme-label {
+  color: #3d3028;
+}
+html[data-theme="light"] .profile-signout-btn {
+  color: #9a7060;
+}
+html[data-theme="light"] .profile-signout-btn:hover {
+  color: #b06a20;
+}
+
+/* Modals */
+html[data-theme="light"] .modal {
+  background: #fff3d4;
+  border-color: rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .modal-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .form-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .form-input::placeholder {
+  color: #9a8472;
+}
+html[data-theme="light"] .form-label {
+  color: #7a6250;
+}
+html[data-theme="light"] .login-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .login-sub,
+html[data-theme="light"] .login-note,
+html[data-theme="light"] .login-toggle {
+  color: #7a6250;
+}
+html[data-theme="light"] .login-toggle span {
+  color: var(--accent);
+}
+
+/* Read modal */
+html[data-theme="light"] .read-modal-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .read-modal-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .read-modal-meta,
+html[data-theme="light"] .read-modal-reads {
+  color: #7a6250;
+}
+html[data-theme="light"] .reply-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .reply-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .reply-author {
+  color: var(--accent2);
+}
+html[data-theme="light"] .reply-time,
+html[data-theme="light"] .reply-char-count {
+  color: #7a6250;
+}
+
+/* Landing cards (preview sections) */
+html[data-theme="light"] .landing-post-card {
+  background: #fff3d4;
+  box-shadow: 0 2px 16px rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .landing-post-card:hover {
+  box-shadow: 0 8px 28px rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .landing-post-card-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .landing-post-card-preview {
+  color: #3d3028;
+}
+html[data-theme="light"] .landing-post-card-meta {
+  color: #7a6250;
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* Landing section headers */
+html[data-theme="light"] .landing-section-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .landing-card-skeleton {
+  background: #ffedd9;
+}
+
+/* Footer */
+html[data-theme="light"] footer {
+  background: var(--footer-bg);
+  border-top-color: rgba(41,36,31,0.12);
+}
+html[data-theme="light"] .footer-logo {
+  color: #1e1a15;
+}
+html[data-theme="light"] .footer-tagline,
+html[data-theme="light"] .footer-col-title {
+  color: #7a6250;
+}
+html[data-theme="light"] .footer-link {
+  color: #3d3028;
+}
+html[data-theme="light"] .footer-link:hover {
+  color: var(--accent);
+}
+html[data-theme="light"] .footer-copy {
+  color: #7a6250;
+}
+html[data-theme="light"] .footer-copy span {
+  color: var(--accent2);
+}
+html[data-theme="light"] .footer-bottom {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* Toast */
+html[data-theme="light"] #toast {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.20);
+  color: #1e1a15;
+}
+
+/* Loading rows */
+html[data-theme="light"] .loading-row {
+  color: #7a6250;
+}
+
+/* Nav avatar */
+html[data-theme="light"] .nav-avatar {
+  background: rgba(176,106,32,0.14);
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+/* Profile bar */
+html[data-theme="light"] .profile-bar {
+  background: #ffedd9;
+  border-bottom-color: rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .profile-name {
+  color: #1e1a15;
+}
+html[data-theme="light"] .profile-role {
+  color: #7a6250;
+}
+html[data-theme="light"] .logout-btn {
+  color: #7a6250;
+  border-color: rgba(41,36,31,0.16);
+}
+
+/* Reflection byline */
+html[data-theme="light"] .reflection-byline {
+  color: #7a6250;
+}
+
+/* Buttons in light mode */
+html[data-theme="light"] .btn-ghost {
+  color: #3d3028;
+  border-color: rgba(41,36,31,0.22);
+}
+html[data-theme="light"] .btn-ghost:hover {
+  color: #1e1a15;
+  border-color: var(--accent);
+}
+html[data-theme="light"] .new-post-btn {
+  color: var(--accent2);
+}
+
+/* Pop card */
+html[data-theme="light"] #profile-pop-card {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.16);
+  box-shadow: 0 8px 24px rgba(41,36,31,0.14);
+}
+html[data-theme="light"] .pop-card-username {
+  color: #1e1a15;
+}
+html[data-theme="light"] .pop-card-bio {
+  color: #7a6250;
+}
+
+/* Delete modal */
+html[data-theme="light"] #delete-modal p {
+  color: #3d3028;
+}
+
+/* Theme switch track */
+html[data-theme="light"] .theme-switch-track {
+  background: #f5e2c4;
+  border-color: rgba(41,36,31,0.20);
+}
+html[data-theme="light"] .theme-switch-current {
+  color: #7a6250;
 }
 
 /* Smooth theme transition on everything except images */
@@ -1545,4 +1924,181 @@ html[data-theme="light"] .theme-switch-thumb {
   .landing-cards-grid .landing-card-skeleton:nth-child(3) {
     display: none;
   }
+}
+
+/* ============================================================
+   STEP 1 — COMPREHENSIVE LIGHT THEME TEXT VISIBILITY FIXES
+   Covers every element that uses hardcoded colors not
+   controlled by CSS variables.
+   ============================================================ */
+
+/* ---- LANDING: hardcoded #ffffff title and #c8c4bc subtitle ---- */
+html[data-theme="light"] .landing-title {
+  color: #1e1a15 !important;
+  font-weight: 900;
+}
+html[data-theme="light"] .landing-title span {
+  color: var(--accent);
+}
+html[data-theme="light"] .landing-sub {
+  color: #3d3028 !important;
+  font-weight: 600;
+}
+html[data-theme="light"] .landing-desc {
+  color: #5a4538 !important;
+}
+/* pillar-name uses hardcoded #b0aca6 */
+html[data-theme="light"] .pillar-name {
+  color: #5a4538 !important;
+}
+
+/* ---- NAV: nav-link hover uses hardcoded #fff ---- */
+html[data-theme="light"] .nav-link:hover {
+  color: #1e1a15 !important;
+}
+/* Nav active underline needs visible accent */
+html[data-theme="light"] .nav-link.active {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent);
+}
+/* Nav backdrop */
+html[data-theme="light"] nav {
+  background: #ffe8c8 !important;
+  border-bottom-color: rgba(41,36,31,0.14) !important;
+  backdrop-filter: none;
+}
+
+/* ---- SECTION HEADERS ---- */
+html[data-theme="light"] .section-title { color: #1e1a15; }
+html[data-theme="light"] .section-sub   { color: #7a6250; }
+
+/* ---- SIDEBAR LABEL uses var(--text3) which in light = #7a6250 — fine
+   but sidebar-label uppercase needs to be slightly darker ---- */
+html[data-theme="light"] .sidebar-label { color: #5a4538; }
+html[data-theme="light"] .sidebar-note  { color: #3d3028; }
+
+/* ---- READ ONLY BANNER ---- */
+html[data-theme="light"] .read-only-banner {
+  background: rgba(176,106,32,0.06);
+  border-bottom-color: rgba(176,106,32,0.15);
+  color: #7a6250;
+}
+
+/* ---- THREAD TAGS (anon + named) ---- */
+html[data-theme="light"] .thread-tag {
+  border-color: rgba(41,36,31,0.18);
+  color: #7a6250;
+}
+html[data-theme="light"] .thread-tag.anon {
+  border-color: rgba(176,106,32,0.25);
+  color: var(--accent2);
+}
+
+/* ---- PENDING BADGE ---- */
+html[data-theme="light"] .pending-badge {
+  background: rgba(176,106,32,0.10);
+  border-color: rgba(176,106,32,0.28);
+  color: var(--accent);
+}
+
+/* ---- ACHIEVEMENTS ---- */
+html[data-theme="light"] .ach-new-btn {
+  border-color: rgba(41,36,31,0.20);
+  color: #7a6250;
+}
+html[data-theme="light"] .ach-new-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(176,106,32,0.07);
+}
+
+/* ---- CHAT SIDEBAR LABEL ---- */
+html[data-theme="light"] .chat-sidebar-label { color: #5a4538; }
+html[data-theme="light"] .chat-sidebar-note  { color: #7a6250; }
+/* Chat user items */
+html[data-theme="light"] .chat-user-item.active {
+  background: rgba(176,106,32,0.10);
+}
+html[data-theme="light"] .chat-user-item:hover {
+  background: #ffedd9;
+}
+
+/* ---- CHAT MESSAGES send button ---- */
+html[data-theme="light"] .chat-send {
+  background: rgba(176,106,32,0.12);
+  border-color: var(--accent2);
+  color: var(--accent);
+}
+
+/* ---- MODALS: anon toggle, hint text ---- */
+html[data-theme="light"] .anon-toggle { color: #7a6250; }
+html[data-theme="light"] .modal-body p,
+html[data-theme="light"] .modal-body div[style*="font-size:11px"],
+html[data-theme="light"] .modal-body div[style*="font-size:14px"] {
+  color: #3d3028;
+}
+html[data-theme="light"] .modal-close { color: #7a6250; }
+html[data-theme="light"] .modal-close:hover { color: #1e1a15; }
+
+/* ---- REPLIES SECTION ---- */
+html[data-theme="light"] .replies-label   { color: #5a4538; }
+html[data-theme="light"] .replies-count   { color: #7a6250; }
+html[data-theme="light"] .replies-empty   { color: #7a6250; }
+html[data-theme="light"] .reply-item {
+  border-bottom-color: rgba(41,36,31,0.09);
+}
+html[data-theme="light"] .reply-input-wrap {
+  border-top-color: rgba(41,36,31,0.09);
+}
+html[data-theme="light"] .reply-login-note {
+  color: #7a6250;
+  border-top-color: rgba(41,36,31,0.09);
+}
+
+/* ---- PROFILE PAGE ---- */
+html[data-theme="light"] .profile-bio-input {
+  background: #ffedd9 !important;
+  color: #1e1a15 !important;
+  border-color: rgba(41,36,31,0.18) !important;
+}
+html[data-theme="light"] .profile-bio-input::placeholder {
+  color: #9a8472;
+}
+html[data-theme="light"] .profile-bio-section {
+  border-top-color: rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .profile-theme-toggle {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- LOADING ROWS ---- */
+html[data-theme="light"] .loading-row    { color: #7a6250; }
+html[data-theme="light"] .ws-empty       { color: #7a6250; }
+
+/* ---- DISCLAIMER MODAL text ---- */
+html[data-theme="light"] #consult-disclaimer-modal .modal-body p {
+  color: #3d3028;
+}
+html[data-theme="light"] #consult-disclaimer-modal strong {
+  color: #1e1a15;
+}
+
+/* ---- PRIVACY POLICY ---- */
+html[data-theme="light"] .policy-layout p  { color: #3d3028; }
+html[data-theme="light"] .policy-layout h1 { color: #1e1a15; }
+html[data-theme="light"] .policy-layout h2 { color: #5a4538; }
+html[data-theme="light"] .policy-date      { color: #7a6250; }
+
+/* ---- SCROLL SENTINEL — no visual impact needed ---- */
+
+/* ---- DARK THEME — also audit hardcoded colors ----
+   One hardcoded color that breaks dark mode:
+   .landing-title uses color: #ffffff which is correct for dark
+   but .pillar-name uses #b0aca6 which is fine on dark.
+   The only dark-mode hardcoded issue is nav-link hover = #fff
+   which is correct on dark. No changes needed for dark.    */
+
+/* ---- NAV ACTIVE STATE contrast improvement (both themes) ---- */
+.nav-link.active {
+  font-weight: 700;
 }
