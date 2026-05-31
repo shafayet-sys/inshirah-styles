@@ -1261,7 +1261,7 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
    LIGHT THEME — warm amber palette
    Applied via [data-theme="light"] on <html>
    ============================================================ */
-[data-theme="light"] {
+html[data-theme="light"] {
   --bg:          #fff3d4;
   --bg2:         #ffedd9;
   --bg3:         #f5e2c4;
@@ -1514,7 +1514,7 @@ footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.
   transition: transform 0.25s ease;
 }
 /* Light mode: slide thumb to right */
-[data-theme="light"] .theme-switch-thumb {
+html[data-theme="light"] .theme-switch-thumb {
   transform: translateX(26px);
 }
 .theme-switch-current {
