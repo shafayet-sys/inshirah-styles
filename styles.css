@@ -1619,12 +1619,21 @@ html[data-theme="light"] .reflection-byline {
 
 /* Buttons in light mode */
 html[data-theme="light"] .btn-ghost {
-  color: #3d3028;
-  border-color: rgba(41,36,31,0.22);
+  color: #1a1208;          /* strong near-black like the logo */
+  border-color: rgba(41,36,31,0.30);
 }
 html[data-theme="light"] .btn-ghost:hover {
-  color: #1e1a15;
+  color: #1a1208;
   border-color: var(--accent);
+  background: rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .btn-accent {
+  color: #1a1208;          /* dark text on amber background */
+  background: rgba(176,106,32,0.16);
+  border-color: rgba(176,106,32,0.40);
+}
+html[data-theme="light"] .btn-accent:hover {
+  background: rgba(176,106,32,0.26);
 }
 html[data-theme="light"] .new-post-btn {
   color: var(--accent2);
@@ -1934,11 +1943,11 @@ html[data-theme="light"] .theme-switch-thumb {
 
 /* ---- LANDING: hardcoded #ffffff title and #c8c4bc subtitle ---- */
 html[data-theme="light"] .landing-title {
-  color: #1e1a15 !important;
+  color: #1a1208 !important; /* same near-black as the logo */
   font-weight: 900;
 }
 html[data-theme="light"] .landing-title span {
-  color: var(--accent);
+  color: var(--accent); /* keeps the warm brown on "Inshirah" */
 }
 html[data-theme="light"] .landing-sub {
   color: #3d3028 !important;
@@ -2101,4 +2110,32 @@ html[data-theme="light"] .policy-date      { color: #7a6250; }
 /* ---- NAV ACTIVE STATE contrast improvement (both themes) ---- */
 .nav-link.active {
   font-weight: 700;
+}
+
+/* ============================================================
+   LIGHT THEME — hero title black text + black button text
+   ============================================================ */
+
+/* "The" and "Program" — force black, keep "Inshirah" accent */
+html[data-theme="light"] .landing-title {
+  color: #1e1a15 !important;
+}
+html[data-theme="light"] .landing-title span {
+  color: var(--accent) !important;
+}
+
+/* CTA buttons on hero — black text on both */
+html[data-theme="light"] .btn-ghost {
+  color: #1e1a15 !important;
+  border-color: rgba(41,36,31,0.30) !important;
+}
+html[data-theme="light"] .btn-ghost:hover {
+  color: #1e1a15 !important;
+  border-color: var(--accent) !important;
+}
+html[data-theme="light"] .btn-accent {
+  color: #1e1a15 !important;
+}
+html[data-theme="light"] .btn-accent:hover {
+  color: #1e1a15 !important;
 }
