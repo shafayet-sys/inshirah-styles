@@ -2139,3 +2139,142 @@ html[data-theme="light"] .btn-accent {
 html[data-theme="light"] .btn-accent:hover {
   color: #1e1a15 !important;
 }
+
+/* ============================================================
+   STEP 2a — COMMUNITY: PORTRAIT CARD GRID
+   Replaces the flat bordered list with lifted cards.
+   Portrait = taller than wide. Shadow + hairline border
+   that animates on hover. Soft human rounding.
+   Works on both dark and light themes via CSS vars.
+   ============================================================ */
+
+/* Forum layout: sidebar stays, main becomes card container */
+.forum-main {
+  border-right: none !important; /* remove the hard divider */
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+/* Card grid — 2 columns, portrait proportion */
+.thread-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start; /* cards don't stretch to match each other */
+}
+
+/* Individual card — replaces the old flat .thread-item */
+.thread-item {
+  background: var(--bg2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 1.5rem 1.25rem !important;
+  border-bottom: none !important;
+  cursor: pointer;
+  position: relative;
+
+  /* Hairline border — invisible at rest, glows in on hover */
+  outline: 1px solid transparent;
+  transition:
+    outline-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.22s ease,
+    background 0.15s ease !important;
+
+  /* Lifted shadow at rest */
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.10),
+    0 1px 2px rgba(0,0,0,0.06);
+}
+
+.thread-item:hover {
+  background: var(--bg2) !important; /* keep bg steady */
+  transform: translateY(-4px);
+  outline-color: var(--accent2); /* hairline border animates in */
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.18),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Tag stays the same but sits flush with no extra bottom border */
+.thread-item .thread-tag {
+  margin-bottom: 8px;
+}
+
+/* Title slightly larger now it has breathing room */
+.thread-item .thread-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* Preview — 3 lines instead of 2 to fill portrait height */
+.thread-item .thread-preview {
+  -webkit-line-clamp: 3 !important;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+/* Meta row at the bottom */
+.thread-item .thread-meta {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  gap: 10px;
+}
+
+/* Delete button repositioned for card layout */
+.thread-item .thread-delete-btn {
+  top: 0.85rem;
+  right: 0.85rem;
+}
+
+/* Loading row spans full grid width */
+.thread-list .loading-row {
+  grid-column: 1 / -1;
+}
+
+/* Scroll sentinel spans full width too */
+.thread-list .scroll-sentinel {
+  grid-column: 1 / -1;
+}
+
+/* ---- FORUM SIDEBAR: soften for card context ---- */
+.forum-sidebar {
+  padding: 1.5rem 1rem;
+  border-left: 1px solid var(--border);
+}
+
+/* ---- LIGHT THEME: cards need slightly deeper shadow ---- */
+html[data-theme="light"] .thread-item {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 2px 12px rgba(41,36,31,0.08),
+    0 1px 3px rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .thread-item:hover {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 10px 36px rgba(41,36,31,0.14),
+    0 2px 8px rgba(41,36,31,0.06);
+  outline-color: var(--accent);
+}
+html[data-theme="light"] .thread-item .thread-meta {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- MOBILE: single column cards ---- */
+@media (max-width: 600px) {
+  .forum-main { padding: 1rem 0.75rem 2rem; }
+  .thread-list { grid-template-columns: 1fr; gap: 12px; }
+  .thread-item { padding: 1.25rem !important; border-radius: 14px !important; }
+  .thread-item:hover { transform: translateY(-2px); }
+}
+
+/* ---- TABLET: 2 columns stay but tighter gap ---- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .forum-main { padding: 1.25rem 1rem 2rem; }
+  .thread-list { gap: 12px; }
+}
