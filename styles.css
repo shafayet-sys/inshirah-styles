@@ -2278,3 +2278,154 @@ html[data-theme="light"] .thread-item .thread-meta {
   .forum-main { padding: 1.25rem 1rem 2rem; }
   .thread-list { gap: 12px; }
 }
+
+/* ============================================================
+   STEP 2b-1 — AMBITIONS: PORTRAIT CARD GRID
+   Replaces the flat 1px-gap tile grid with lifted cards.
+   Matches the Community card treatment — same shadow,
+   same hairline border animation, same rounding language.
+   ============================================================ */
+
+/* Grid container — remove the 1px border trick, use proper gap */
+.ambitions-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: 16px !important;
+  background: transparent !important; /* was var(--border) — no longer needed */
+  padding: 1.5rem !important;
+  align-items: start;
+}
+
+/* Individual achievement card */
+.achievement-card {
+  background: var(--bg2) !important;
+  border-radius: 16px !important;
+  padding: 1.75rem 1.5rem 1.5rem !important;
+  cursor: pointer;
+  position: relative;
+
+  /* Hairline border — invisible at rest */
+  outline: 1px solid transparent;
+  transition:
+    outline-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.22s ease,
+    background 0.15s ease !important;
+
+  /* Lifted shadow at rest */
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.10),
+    0 1px 3px rgba(0,0,0,0.06);
+
+  /* Ensure portrait proportion via min-height */
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-card:hover {
+  background: var(--bg2) !important;
+  transform: translateY(-4px);
+  outline-color: var(--accent2);
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.18),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Title — more breathing room */
+.achievement-card .ach-title {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+/* User + date grouped at bottom */
+.achievement-card .ach-user {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.04em;
+}
+
+.achievement-card .ach-date {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+/* "Share a milestone" add button — card style too */
+.ach-new-btn {
+  background: transparent !important;
+  border: 1px dashed var(--border2) !important;
+  border-radius: 16px !important;
+  color: var(--text3);
+  padding: 1.75rem 1.5rem !important;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 160px;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease !important;
+}
+.ach-new-btn:hover {
+  border-color: var(--accent2) !important;
+  color: var(--accent);
+  background: var(--accent-dim2) !important;
+}
+
+/* ---- LIGHT THEME overrides ---- */
+html[data-theme="light"] .achievement-card {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 2px 12px rgba(41,36,31,0.08),
+    0 1px 3px rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .achievement-card:hover {
+  background: #fff7e8 !important;
+  outline-color: var(--accent);
+  box-shadow:
+    0 10px 36px rgba(41,36,31,0.13),
+    0 2px 8px rgba(41,36,31,0.06);
+}
+html[data-theme="light"] .achievement-card .ach-user {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- MOBILE: tighter but still cards ---- */
+@media (max-width: 600px) {
+  .ambitions-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    padding: 1rem !important;
+  }
+  .achievement-card {
+    padding: 1.25rem 1rem 1.1rem !important;
+    border-radius: 14px !important;
+    min-height: 140px;
+  }
+  .achievement-card:hover { transform: translateY(-2px); }
+  .ach-new-btn {
+    min-height: 140px;
+    border-radius: 14px !important;
+  }
+}
+
+/* ---- TABLET: keep auto-fill, slightly tighter gap ---- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .ambitions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
