@@ -1,0 +1,34 @@
+/* ---- FORUM ---- */
+.forum-layout { display: grid; grid-template-columns: 1fr 220px; flex: 1; }
+.forum-main   { border-right: 1px solid var(--border); }
+.forum-sidebar { padding: 1.5rem; }
+.thread-item { padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; position: relative; }
+.thread-item:hover { background: var(--bg2); }
+.thread-tag { display: inline-block; font-size: 10px; letter-spacing: 0.1em; padding: 2px 8px; border: 1px solid var(--border2); color: var(--text3); margin-bottom: 6px; text-transform: uppercase; }
+.thread-tag.anon { border-color: rgba(122,154,184,0.2); color: var(--accent2); }
+.thread-title   { font-size: 15px; color: var(--text); margin-bottom: 4px; }
+.thread-preview { font-size: 13px; color: var(--text2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.thread-meta    { display: flex; gap: 12px; margin-top: 8px; }
+.thread-meta span { font-size: 11px; color: var(--text3); }
+/* delete button on thread items */
+.thread-delete-btn {
+  position: absolute; top: 1rem; right: 1.25rem;
+  background: none; border: none; color: var(--text3);
+  font-size: 12px; cursor: pointer; padding: 2px 6px;
+  font-family: var(--font); opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+.thread-item:hover .thread-delete-btn { opacity: 1; }
+.thread-delete-btn:hover { color: #e08080; }
+
+.sidebar-widget  { margin-bottom: 1.5rem; }
+.sidebar-label   { font-size: 11px; letter-spacing: 0.1em; color: var(--text3); text-transform: uppercase; margin-bottom: 8px; }
+.sidebar-note    { font-size: 13px; color: var(--text2); line-height: 1.7; font-style: italic; }
+.new-post-btn {
+  width: 100%; font-family: var(--font); font-size: 13px; padding: 10px;
+  background: var(--accent-dim); border: 1px solid var(--accent2);
+  color: var(--accent); cursor: pointer; letter-spacing: 0.04em;
+  transition: all 0.2s; margin-bottom: 1.25rem;
+}
+.new-post-btn:hover { background: rgba(122,154,184,0.2); }
+.loading-row { padding: 2rem; text-align: center; font-size: 13px; color: var(--text3); font-style: italic; }

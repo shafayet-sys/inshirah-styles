@@ -1,0 +1,267 @@
+/* ============================================================
+   THREE-DOT MESSAGE MENU
+   Replaces the old single delete button on messages.
+   The three-dot (⋮) button appears on hover. Clicking it
+   reveals a small dropdown with the Delete option inside.
+   ============================================================ */
+.msg-menu-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.msg-menu-btn {
+  background: none; border: none;
+  color: var(--text3); font-size: 14px;
+  cursor: pointer; padding: 0 4px; line-height: 1;
+  opacity: 0; transition: opacity 0.15s, color 0.15s;
+  font-family: var(--font);
+}
+.msg:hover .msg-menu-btn { opacity: 1; }
+.msg-menu-btn:hover { color: var(--text2); }
+
+.msg-menu-dropdown {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  right: 0;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  min-width: 90px;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+/* Flip dropdown to below for messages near the top */
+.msg.me .msg-menu-dropdown  { right: 0; }
+.msg.them .msg-menu-dropdown { left: 0; right: auto; }
+
+.msg-menu-item {
+  display: block; width: 100%;
+  background: none; border: none;
+  font-family: var(--font); font-size: 13px;
+  padding: 8px 14px; text-align: left;
+  cursor: pointer; transition: background 0.15s;
+  color: var(--text2); letter-spacing: 0.03em;
+}
+.msg-menu-item:hover { background: var(--bg4); }
+.msg-menu-item.delete { color: #e08080; }
+.msg-menu-item.delete:hover { background: rgba(180,80,80,0.1); }
+
+/* ============================================================
+   LOADING MORE ROW
+   Slightly dimmer than the initial loading state to signal
+   it is a background action, not a page load.
+   ============================================================ */
+.loading-more-row {
+  color: var(--text3) !important;
+  font-size: 12px !important;
+  padding: 1rem !important;
+}
+
+/* ============================================================
+   READING MODAL
+   Opens when a post, achievement card or article is clicked.
+   Shows the full untruncated content.
+   ============================================================ */
+.read-modal-inner {
+  max-width: 620px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.read-modal-inner .modal-body {
+  overflow-y: auto;
+  flex: 1;
+}
+.read-modal-title {
+  font-size: 20px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+.read-modal-body {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.95;
+  white-space: pre-wrap; /* preserves line breaks the user typed */
+}
+.read-modal-meta {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.05em;
+}
+/* Make the modal overlay scroll to top when opened */
+.modal-overlay.open {
+  overflow-y: auto;
+}
+
+/* ============================================================
+   NAV AVATAR BUTTON
+   Shown top-right when logged in. Clicking navigates to profile.
+   ============================================================ */
+#nav-avatar-btn {
+  cursor: pointer;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+.nav-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--accent);
+  font-weight: 700; font-family: var(--font);
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-avatar:hover {
+  background: rgba(122,154,184,0.22);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   PROFILE PAGE
+   ============================================================ */
+.profile-page-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 120px);
+}
+.profile-card {
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+.profile-card-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--accent);
+  font-weight: 700; margin-bottom: 0.85rem;
+}
+.profile-card-username {
+  font-size: 16px; color: var(--text);
+  font-style: italic; margin-bottom: 4px;
+}
+.profile-card-role {
+  font-size: 10px; letter-spacing: 0.12em;
+  color: var(--text3); text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.profile-bio-section {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+}
+.profile-bio-input {
+  font-size: 13px !important;
+  resize: none !important;
+  min-height: 70px;
+}
+.profile-save-btn {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 13px;
+  padding: 8px;
+}
+.profile-signout-btn {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 2rem;
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: color 0.2s;
+  padding-bottom: 0;
+}
+.profile-signout-btn:hover { color: #e08080; }
+.profile-posts-section {
+  padding: 1.75rem 2rem;
+}
+
+/* ============================================================
+   PROFILE POP CARD
+   Small floating card that appears when clicking any username
+   or avatar on the site. Positioned near the clicked element.
+   ============================================================ */
+#profile-pop-card {
+  position: fixed;
+  z-index: 300;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 1rem 1.25rem;
+  min-width: 180px;
+  max-width: 240px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  display: none;
+  border-radius: 6px;
+}
+#profile-pop-card.visible { display: block; }
+.pop-card-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--accent);
+  font-weight: 700; margin-bottom: 8px;
+}
+.pop-card-username {
+  font-size: 14px; color: var(--text);
+  font-style: italic; margin-bottom: 4px;
+}
+.pop-card-bio {
+  font-size: 12px; color: var(--text3);
+  line-height: 1.6; font-style: italic;
+}
+.pop-card-bio.empty { color: var(--text3); opacity: 0.5; }
+
+/* ============================================================
+   CHAT LAYOUT VARIANTS
+   .chat-layout-solo  — regular user, no sidebar, centered wide
+   .chat-layout-split — staff view, sidebar + chat area
+   ============================================================ */
+.chat-layout-solo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+.chat-layout-split {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  flex: 1;
+}
+
+/* ============================================================
+   RESPONSIVE SYSTEM
+   Three breakpoints:
+     Mobile:  max-width 600px  — phones (375px–599px)
+     Tablet:  601px – 900px    — tablets and large phones
+     Desktop: 901px+           — everything above (default styles)
+
+   Step 1 covers: nav, global layout, forum, ambitions,
+                  spirituality, profile page, footer, landing.
+   Step 2 covers: chat page specifically.
+   ============================================================ */
+
+/* ============================================================

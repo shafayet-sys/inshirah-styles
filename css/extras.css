@@ -1,0 +1,567 @@
+   READ COUNT ON THREAD ITEMS
+   Small "N reads" label shown in thread meta row.
+   ============================================================ */
+.thread-reads {
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   READING MODAL — READ COUNT + REPLIES
+   ============================================================ */
+.read-modal-reads {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+
+.read-modal-replies-section {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.replies-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.replies-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text3);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.replies-count {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+/* Individual reply item */
+.reply-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.reply-item:last-of-type { border-bottom: none; }
+.reply-author {
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.reply-author:hover { color: var(--accent); }
+.reply-body {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.reply-time {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 4px;
+}
+.replies-empty {
+  font-size: 13px;
+  color: var(--text3);
+  font-style: italic;
+  padding: 0.5rem 0 1rem;
+}
+
+/* Reply input area */
+.reply-input-wrap {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.reply-input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 9px 12px;
+  outline: none;
+  resize: none;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+  min-height: 60px;
+}
+.reply-input:focus { border-color: var(--accent2); }
+.reply-input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.reply-char-count {
+  font-size: 11px;
+  color: var(--text3);
+  font-style: italic;
+}
+.reply-char-count.low { color: var(--amber, #b88a3a); }
+.reply-char-count.out { color: #e08080; }
+.reply-submit-btn {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+.reply-login-note {
+  font-size: 12px;
+  color: var(--text3);
+  font-style: italic;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   REFLECTION PAGE — byline
+   ============================================================ */
+.reflection-byline {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text3);
+  font-style: italic;
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem 0;
+}
+
+/* ============================================================
+   CONSULTATION DISCLAIMER MODAL
+   Uses existing .modal-overlay and .modal base styles.
+   Only needs the continue button enabled/disabled transition.
+   ============================================================ */
+#consult-disclaimer-modal .btn-accent:not(:disabled) {
+  opacity: 1;
+  cursor: pointer;
+}
+#consult-disclaimer-modal strong {
+  font-style: normal;
+}
+
+/* ============================================================
+   LIGHT THEME — warm amber palette
+   Applied via [data-theme="light"] on <html>
+   ============================================================ */
+html[data-theme="light"] {
+  /* Backgrounds — warm amber cream */
+  --bg:          #fff3d4;
+  --bg2:         #ffedd9;
+  --bg3:         #f5e2c4;
+  --bg4:         #ecd5b0;
+
+  /* Borders — rich dark brown tones */
+  --border:      rgba(41,36,31,0.10);
+  --border2:     rgba(41,36,31,0.20);
+
+  /* Text — deep warm browns, all readable on cream */
+  --text:        #1e1a15;   /* near-black warm */
+  --text2:       #3d3028;   /* mid brown — was too light */
+  --text3:       #7a6250;   /* muted label — still legible */
+
+  /* Accent — warm amber-orange */
+  --accent:      #b06a20;
+  --accent2:     #8f5218;
+  --accent-dim:  rgba(176,106,32,0.14);
+  --accent-dim2: rgba(176,106,32,0.08);
+
+  /* Footer */
+  --footer-bg:   #f0dcb8;
+}
+
+/* ---- Hardcoded color overrides for light mode ----
+   These elements use fixed hex colors that are invisible
+   on the warm cream background. Override them all here.  */
+
+/* Nav links — were #d4d0ca (light grey, invisible on cream) */
+html[data-theme="light"] .nav-link {
+  color: #3d3028;
+}
+html[data-theme="light"] .nav-link:hover {
+  color: #1e1a15;
+}
+html[data-theme="light"] .nav-logo {
+  color: #1e1a15;
+}
+
+/* Nav mobile panel */
+html[data-theme="light"] .nav-mobile-panel {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.20);
+}
+html[data-theme="light"] .nav-mobile-panel .nav-link {
+  color: #3d3028;
+  border-right-color: rgba(41,36,31,0.10);
+}
+
+/* Nav background — slightly warm to distinguish from page */
+html[data-theme="light"] nav {
+  background: #ffe8c8;
+  border-bottom-color: rgba(41,36,31,0.12);
+}
+
+/* Landing title — was #ffffff (pure white, invisible on cream) */
+html[data-theme="light"] .landing-title {
+  color: #1e1a15;
+}
+
+/* Landing subtitle — was #c8c4bc (light grey) */
+html[data-theme="light"] .landing-sub {
+  color: #3d3028;
+}
+
+/* Landing description — was #8a8680 (mid grey) */
+html[data-theme="light"] .landing-desc {
+  color: #5a4538;
+}
+
+/* Landing eyebrow — keep accent but ensure readability */
+html[data-theme="light"] .landing-eyebrow {
+  color: var(--accent2);
+  font-weight: 700;
+}
+
+/* Feature cards on light */
+html[data-theme="light"] .feature-card {
+  background: #fff3d4;
+  box-shadow: 0 4px 20px rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .feature-card:hover {
+  box-shadow: 0 12px 36px rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .feature-card-label {
+  color: #1e1a15;
+}
+html[data-theme="light"] .feature-card-desc {
+  color: #7a6250;
+}
+
+/* Section headers */
+html[data-theme="light"] .section-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .section-sub {
+  color: #7a6250;
+}
+
+/* Thread items */
+html[data-theme="light"] .thread-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .thread-preview {
+  color: #3d3028;
+}
+html[data-theme="light"] .thread-meta span {
+  color: #7a6250;
+}
+html[data-theme="light"] .thread-item:hover {
+  background: #ffedd9;
+}
+
+/* Sidebar */
+html[data-theme="light"] .forum-sidebar {
+  background: #fff3d4;
+}
+html[data-theme="light"] .sidebar-label {
+  color: #7a6250;
+}
+html[data-theme="light"] .sidebar-note {
+  color: #3d3028;
+}
+
+/* Chat */
+html[data-theme="light"] .chat-header-name {
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-header-status {
+  color: #7a6250;
+}
+html[data-theme="light"] .msg.them .msg-bubble {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.15);
+  color: #1e1a15;
+}
+html[data-theme="light"] .msg.me .msg-bubble {
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .chat-user-name {
+  color: #3d3028;
+}
+html[data-theme="light"] .chat-snippet {
+  color: #7a6250;
+}
+html[data-theme="light"] .privacy-note {
+  color: #7a6250;
+}
+
+/* Spirituality */
+html[data-theme="light"] .article-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .article-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .article-kicker {
+  color: var(--accent2);
+}
+html[data-theme="light"] .article-footer {
+  color: #7a6250;
+}
+
+/* Ambitions */
+html[data-theme="light"] .ach-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .ach-user,
+html[data-theme="light"] .ach-date {
+  color: #7a6250;
+}
+html[data-theme="light"] .achievement-card {
+  background: #fff3d4;
+  box-shadow: 0 2px 12px rgba(41,36,31,0.08);
+}
+html[data-theme="light"] .achievement-card:hover {
+  background: #ffedd9;
+}
+
+/* Profile page */
+html[data-theme="light"] .profile-card-username {
+  color: #1e1a15;
+}
+html[data-theme="light"] .profile-card-role {
+  color: #7a6250;
+}
+html[data-theme="light"] .profile-theme-label {
+  color: #3d3028;
+}
+html[data-theme="light"] .profile-signout-btn {
+  color: #9a7060;
+}
+html[data-theme="light"] .profile-signout-btn:hover {
+  color: #b06a20;
+}
+
+/* Modals */
+html[data-theme="light"] .modal {
+  background: #fff3d4;
+  border-color: rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .modal-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .form-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .form-input::placeholder {
+  color: #9a8472;
+}
+html[data-theme="light"] .form-label {
+  color: #7a6250;
+}
+html[data-theme="light"] .login-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .login-sub,
+html[data-theme="light"] .login-note,
+html[data-theme="light"] .login-toggle {
+  color: #7a6250;
+}
+html[data-theme="light"] .login-toggle span {
+  color: var(--accent);
+}
+
+/* Read modal */
+html[data-theme="light"] .read-modal-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .read-modal-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .read-modal-meta,
+html[data-theme="light"] .read-modal-reads {
+  color: #7a6250;
+}
+html[data-theme="light"] .reply-input {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.18);
+  color: #1e1a15;
+}
+html[data-theme="light"] .reply-body {
+  color: #3d3028;
+}
+html[data-theme="light"] .reply-author {
+  color: var(--accent2);
+}
+html[data-theme="light"] .reply-time,
+html[data-theme="light"] .reply-char-count {
+  color: #7a6250;
+}
+
+/* Landing cards (preview sections) */
+html[data-theme="light"] .landing-post-card {
+  background: #fff3d4;
+  box-shadow: 0 2px 16px rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .landing-post-card:hover {
+  box-shadow: 0 8px 28px rgba(41,36,31,0.16);
+}
+html[data-theme="light"] .landing-post-card-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .landing-post-card-preview {
+  color: #3d3028;
+}
+html[data-theme="light"] .landing-post-card-meta {
+  color: #7a6250;
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* Landing section headers */
+html[data-theme="light"] .landing-section-title {
+  color: #1e1a15;
+}
+html[data-theme="light"] .landing-card-skeleton {
+  background: #ffedd9;
+}
+
+/* Footer */
+html[data-theme="light"] footer {
+  background: var(--footer-bg);
+  border-top-color: rgba(41,36,31,0.12);
+}
+html[data-theme="light"] .footer-logo {
+  color: #1e1a15;
+}
+html[data-theme="light"] .footer-tagline,
+html[data-theme="light"] .footer-col-title {
+  color: #7a6250;
+}
+html[data-theme="light"] .footer-link {
+  color: #3d3028;
+}
+html[data-theme="light"] .footer-link:hover {
+  color: var(--accent);
+}
+html[data-theme="light"] .footer-copy {
+  color: #7a6250;
+}
+html[data-theme="light"] .footer-copy span {
+  color: var(--accent2);
+}
+html[data-theme="light"] .footer-bottom {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* Toast */
+html[data-theme="light"] #toast {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.20);
+  color: #1e1a15;
+}
+
+/* Loading rows */
+html[data-theme="light"] .loading-row {
+  color: #7a6250;
+}
+
+/* Nav avatar */
+html[data-theme="light"] .nav-avatar {
+  background: rgba(176,106,32,0.14);
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+/* Profile bar */
+html[data-theme="light"] .profile-bar {
+  background: #ffedd9;
+  border-bottom-color: rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .profile-name {
+  color: #1e1a15;
+}
+html[data-theme="light"] .profile-role {
+  color: #7a6250;
+}
+html[data-theme="light"] .logout-btn {
+  color: #7a6250;
+  border-color: rgba(41,36,31,0.16);
+}
+
+/* Reflection byline */
+html[data-theme="light"] .reflection-byline {
+  color: #7a6250;
+}
+
+/* Buttons in light mode */
+html[data-theme="light"] .btn-ghost {
+  color: #1a1208;          /* strong near-black like the logo */
+  border-color: rgba(41,36,31,0.30);
+}
+html[data-theme="light"] .btn-ghost:hover {
+  color: #1a1208;
+  border-color: var(--accent);
+  background: rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .btn-accent {
+  color: #1a1208;          /* dark text on amber background */
+  background: rgba(176,106,32,0.16);
+  border-color: rgba(176,106,32,0.40);
+}
+html[data-theme="light"] .btn-accent:hover {
+  background: rgba(176,106,32,0.26);
+}
+html[data-theme="light"] .new-post-btn {
+  color: var(--accent2);
+}
+
+/* Pop card */
+html[data-theme="light"] #profile-pop-card {
+  background: #ffedd9;
+  border-color: rgba(41,36,31,0.16);
+  box-shadow: 0 8px 24px rgba(41,36,31,0.14);
+}
+html[data-theme="light"] .pop-card-username {
+  color: #1e1a15;
+}
+html[data-theme="light"] .pop-card-bio {
+  color: #7a6250;
+}
+
+/* Delete modal */
+html[data-theme="light"] #delete-modal p {
+  color: #3d3028;
+}
+
+/* Theme switch track */
+html[data-theme="light"] .theme-switch-track {
+  background: #f5e2c4;
+  border-color: rgba(41,36,31,0.20);
+}
+html[data-theme="light"] .theme-switch-current {
+  color: #7a6250;
+}
+
+/* Smooth theme transition on everything except images */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* Don't transition transforms/opacity — breaks animations */
+.feature-card, .landing-post-card, .msg-bubble {
+  transition: background-color 0.25s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease,
+              transform 0.22s ease;
+}
+
+/* ============================================================

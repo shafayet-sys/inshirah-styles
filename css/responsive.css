@@ -1,0 +1,511 @@
+   MOBILE NAV — collapsible horizontal row
+   ============================================================ */
+
+/* The toggle button — hidden on desktop */
+.nav-toggle-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-size: 18px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--font);
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-toggle-btn:hover { color: var(--text); border-color: var(--accent); }
+
+/* Mobile nav dropdown panel */
+.nav-mobile-panel {
+  display: none; /* shown by JS when open */
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-top: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  width: auto;
+  max-width: 96vw;
+  /* Fade in animation */
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.nav-mobile-panel.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.nav-mobile-panel .nav-link {
+  height: 44px;
+  padding: 0 0.85rem;
+  font-size: 12px;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.nav-mobile-panel .nav-link:last-child { border-right: none; }
+
+/* ============================================================
+   MOBILE — max-width 600px
+   ============================================================ */
+@media (max-width: 600px) {
+
+  /* ---- NAV ---- */
+  nav {
+    padding: 0 1rem;
+    height: 54px;
+  }
+  .nav-links {
+    display: none; /* hidden — replaced by mobile panel */
+  }
+  .nav-toggle-btn {
+    display: block;
+  }
+  /* Tighten nav right side */
+  .nav-right { gap: 6px; }
+  .btn { font-size: 12px; padding: 5px 12px; }
+  #nav-avatar-btn { margin-left: 6px; }
+  .nav-avatar { width: 30px; height: 30px; font-size: 12px; }
+
+  /* ---- LANDING ---- */
+  .landing {
+    padding: 2.5rem 1.25rem;
+    min-height: calc(100vh - 54px);
+  }
+  .landing-title {
+    font-size: 26px;
+  }
+  .landing-sub {
+    font-size: 14px;
+  }
+  .landing-desc { font-size: 13px; }
+  .landing-actions { flex-direction: column; gap: 8px; width: 100%; }
+  .landing-actions .btn { width: 100%; padding: 10px; text-align: center; }
+  .landing-pillars {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+  .pillar {
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+  }
+  .pillar-icon { margin-bottom: 0; font-size: 16px; }
+
+  /* ---- SECTION HEADER ---- */
+  .section-header {
+    padding: 1.1rem 1rem 0.75rem;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .section-title { font-size: 16px; }
+  .section-sub   { font-size: 11px; }
+
+  /* ---- COMMUNITY PAGE ---- */
+  /* Forum layout: single column, sidebar moves to ribbon below header */
+  .forum-layout {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .forum-sidebar {
+    order: -1; /* ribbon appears ABOVE thread list */
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  /* Hide descriptive sidebar text on mobile, keep only the button */
+  .forum-sidebar .sidebar-widget { display: none; }
+  .new-post-btn {
+    width: auto;
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+  .thread-item { padding: 1rem; }
+  .thread-title { font-size: 14px; }
+  .thread-preview { font-size: 12px; }
+
+  /* ---- AMBITIONS ---- */
+  .ambitions-grid {
+    grid-template-columns: 1fr 1fr; /* two cards per row on mobile */
+  }
+  .achievement-card { padding: 1rem; }
+  .ach-title { font-size: 13px; }
+  .ach-new-btn { padding: 1rem; font-size: 12px; }
+
+  /* ---- SPIRITUALITY ---- */
+  .spirit-layout {
+    padding: 1.5rem 1rem;
+  }
+  .article-title { font-size: 17px; }
+  .article-body  { font-size: 13px; }
+
+  /* ---- PROFILE PAGE ---- */
+  .profile-page-layout {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .profile-card-avatar {
+    width: 48px; height: 48px;
+    font-size: 18px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .profile-card-username { font-size: 14px; margin-bottom: 2px; }
+  .profile-card-role     { margin-bottom: 0; }
+  .profile-bio-section {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+  .profile-signout-btn {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+  .profile-posts-section { padding: 1rem; }
+
+  /* ---- READ MODAL ---- */
+  .read-modal-inner {
+    max-width: 100%;
+    max-height: 90vh;
+    margin: 0;
+  }
+  .modal-overlay { padding: 1rem 0.5rem; align-items: flex-end; }
+  .read-modal-title { font-size: 16px; }
+
+  /* ---- POST MODAL ---- */
+  .modal { max-width: 100%; }
+
+  /* ---- FOOTER ---- */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .footer-tagline { max-width: 100%; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* ---- READ ONLY BANNER ---- */
+  .read-only-banner { padding: 6px 1rem; font-size: 11px; }
+
+  /* ---- LOGIN / SIGNUP ---- */
+  .login-page { padding: 2rem 1rem; }
+  .login-title { font-size: 20px; }
+
+  /* ---- LOADING ROW ---- */
+  .loading-row { font-size: 12px; }
+}
+
+/* ============================================================
+   TABLET — 601px to 900px
+   ============================================================ */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  /* ---- NAV ---- */
+  nav { padding: 0 1.25rem; }
+  .nav-links { gap: 0; }
+  .nav-link {
+    font-size: 12px;
+    padding: 0 0.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- LANDING ---- */
+  .landing-title { font-size: 30px; }
+  .landing-pillars { max-width: 100%; }
+
+  /* ---- COMMUNITY PAGE ---- */
+  /* Narrow the sidebar on tablet */
+  .forum-layout {
+    grid-template-columns: 1fr 180px;
+  }
+  /* Show sidebar but more compact */
+  .forum-sidebar { padding: 1rem; }
+  .sidebar-label { font-size: 10px; }
+  .sidebar-note  { font-size: 12px; }
+  .new-post-btn  { font-size: 12px; }
+
+  /* ---- AMBITIONS ---- */
+  .ambitions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  /* ---- PROFILE PAGE ---- */
+  .profile-page-layout {
+    grid-template-columns: 220px 1fr;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* ---- SECTION HEADER ---- */
+  .section-header { padding: 1.25rem 1.25rem 0.85rem; }
+}
+
+/* ============================================================
+   STEP 2 — CHAT PAGE RESPONSIVE
+   Covers: solo user layout, staff sidebar overlay,
+           message bubble limits, viewport height lock,
+           keyboard-safe input bar, tablet proportions.
+   ============================================================ */
+
+/* ---- Chat page height lock ----
+   The nav is 60px. We subtract it so the chat fills exactly
+   the remaining visible screen with no overflow or scroll.
+   dvh accounts for mobile browser chrome (address bar).     */
+/* Chat page height lock — display is controlled by .page/.page.active
+   We only set dimensions and overflow here, never display:flex directly
+   because that would override the .page { display:none } rule          */
+#page-adminchat.active {
+  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  flex: none;
+}
+#page-adminchat.active .page-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+#page-adminchat .section-header {
+  flex-shrink: 0;
+}
+
+/* ---- Chat layout base — scoped to adminchat page only ---- */
+#page-adminchat .chat-layout {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ---- Solo layout (regular user — no sidebar) ---- */
+.chat-layout-solo {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.chat-layout-solo .chat-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.chat-layout-solo .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.chat-layout-solo .chat-input-row {
+  flex-shrink: 0;
+}
+
+/* ---- Split layout (staff — with sidebar) ---- */
+.chat-layout-split {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 0;
+  overflow: hidden;
+}
+.chat-layout-split .chat-area {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.chat-layout-split .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.chat-layout-split .chat-input-row {
+  flex-shrink: 0;
+}
+.chat-layout-split .chat-sidebar {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* ---- Message bubble width limits ---- */
+.msg {
+  max-width: 76%;
+}
+
+/* ---- MOBILE chat overrides ---- */
+@media (max-width: 600px) {
+
+  /* Full viewport height lock on mobile — only when active */
+  #page-adminchat.active {
+    height: calc(100vh - 54px);
+    height: calc(100dvh - 54px);
+    max-height: calc(100vh - 54px);
+  }
+
+  /* Section header more compact */
+  #page-adminchat .section-header {
+    padding: 0.75rem 1rem 0.5rem;
+  }
+
+  /* Solo layout: full width, no side margins */
+  .chat-layout-solo {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Staff split layout on mobile:
+     Transform into a vertical stack.
+     Sidebar becomes an absolute overlay that slides in
+     over the chat area when a toggle button is pressed.     */
+  .chat-layout-split {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Sidebar overlay — hidden by default on mobile */
+  .chat-layout-split .chat-sidebar {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 80%;
+    max-width: 260px;
+    z-index: 50;
+    background: var(--bg2);
+    border-right: 1px solid var(--border2);
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    overflow-y: auto;
+  }
+  /* Open state — triggered by JS adding .sidebar-open to chat-layout */
+  .chat-layout-split.sidebar-open .chat-sidebar {
+    transform: translateX(0);
+  }
+  /* Dim overlay behind sidebar when open */
+  .chat-layout-split.sidebar-open::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+  }
+
+  /* Chat area takes full width on mobile */
+  .chat-layout-split .chat-area {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* Message bubbles — tighter on mobile */
+  .msg { max-width: 85%; }
+  .msg-bubble { padding: 8px 11px; font-size: 13px; }
+  .msg-time   { font-size: 10px; }
+
+  /* Input bar — larger touch target on mobile */
+  .chat-input { font-size: 14px; padding: 10px 12px; }
+  .chat-send  { padding: 10px 14px; font-size: 13px; }
+  .chat-input-row { padding: 0.75rem 1rem; gap: 6px; }
+
+  /* Chat header — add sidebar toggle button for staff */
+  .chat-header { padding: 0.75rem 1rem; gap: 8px; }
+  .chat-header-name   { font-size: 13px; }
+  .chat-header-status { font-size: 10px; }
+
+  /* Privacy note more compact */
+  .privacy-note { padding: 5px 1rem; font-size: 10px; }
+}
+
+/* ---- TABLET chat overrides ---- */
+@media (min-width: 601px) and (max-width: 900px) {
+
+  /* Narrow the staff sidebar on tablet */
+  .chat-layout-split {
+    grid-template-columns: 170px 1fr;
+  }
+
+  /* Slightly smaller sidebar text */
+  .chat-sidebar-label { font-size: 9px; }
+  .chat-user-name     { font-size: 12px; }
+  .chat-snippet       { font-size: 10px; }
+  .chat-user-item     { padding: 0.5rem 0.75rem; gap: 7px; }
+
+  /* Solo layout: reasonable max width on tablet */
+  .chat-layout-solo {
+    max-width: 600px;
+  }
+
+  /* Message bubbles */
+  .msg { max-width: 78%; }
+
+  /* Input bar */
+  .chat-input-row { padding: 0.85rem 1.25rem; }
+}
+
+/* ---- Staff mobile sidebar toggle button ----
+   Injected by JS into the chat header on mobile for staff.
+   Hidden on desktop via media query.                       */
+.chat-sidebar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-size: 14px;
+  padding: 4px 9px;
+  cursor: pointer;
+  font-family: var(--font);
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.chat-sidebar-toggle:hover { color: var(--text); border-color: var(--accent); }
+
+@media (max-width: 600px) {
+  .chat-sidebar-toggle { display: inline-flex; align-items: center; }
+}
+
+/* ============================================================

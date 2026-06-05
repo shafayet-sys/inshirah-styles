@@ -1,0 +1,16 @@
+/* ---- SPIRITUALITY ---- */
+.read-only-banner { background: var(--accent-dim2); border-bottom: 1px solid rgba(122,154,184,0.1); padding: 8px 2rem; font-size: 12px; color: var(--text3); font-style: italic; }
+.spirit-layout { max-width: 700px; margin: 0 auto; padding: 2.5rem 2rem; }
+.article-item { padding: 2rem 0; border-bottom: 1px solid var(--border); position: relative; }
+.article-item:last-child { border-bottom: none; }
+.article-kicker { font-size: 11px; letter-spacing: 0.12em; color: var(--accent2); text-transform: uppercase; margin-bottom: 8px; }
+.article-title  { font-size: 21px; font-style: italic; color: var(--text); margin-bottom: 12px; line-height: 1.4; }
+.article-body   { font-size: 14px; color: var(--text2); line-height: 1.95; }
+.article-footer { margin-top: 12px; font-size: 11px; color: var(--text3); letter-spacing: 0.06em; display: flex; align-items: center; gap: 10px; }
+.article-delete-btn {
+  background: none; border: none; color: var(--text3);
+  font-size: 12px; cursor: pointer; font-family: var(--font);
+  opacity: 0; transition: opacity 0.15s, color 0.15s; padding: 0;
+}
+.article-item:hover .article-delete-btn { opacity: 1; }
+.article-delete-btn:hover { color: #e08080; }

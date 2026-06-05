@@ -1,0 +1,53 @@
+/* ============================================================
+   INSHIRAH PROGRAM — styles.css
+   To change colours: edit the :root variables at the top.
+   To change fonts: edit --font.
+   To change layout of a specific section: find its comment block.
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0e0e0e;
+  --bg2:         #141414;
+  --bg3:         #1a1a1a;
+  --bg4:         #202020;
+  --border:      rgba(255,255,255,0.07);
+  --border2:     rgba(255,255,255,0.12);
+  --text:        #e8e4dd;
+  --text2:       #9a9690;
+  --text3:       #6a6660;
+  --accent:      #7a9ab8;
+  --accent2:     #5c7d9e;
+  --accent-dim:  rgba(122,154,184,0.12);
+  --accent-dim2: rgba(122,154,184,0.07);
+  --footer-bg:   #1e1e1e;
+  --font:        'Times New Roman', Times, serif;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#app { flex: 1; display: flex; flex-direction: column; }
+
+/* ---- TOAST ---- */
+#toast {
+  position: fixed; bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg3); border: 1px solid var(--border2);
+  color: var(--text); font-size: 13px; padding: 10px 20px;
+  border-radius: 3px; z-index: 999; opacity: 0;
+  transition: opacity 0.3s; pointer-events: none;
+  font-family: var(--font);
+}
+#toast.show  { opacity: 1; }
+#toast.error   { border-color: rgba(180,80,80,0.4);   color: #e08080; }
+#toast.success { border-color: rgba(80,160,100,0.4);  color: #80c090; }

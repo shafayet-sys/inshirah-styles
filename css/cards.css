@@ -1,0 +1,750 @@
+   FEATURE CARDS — replaces pillars
+   ============================================================ */
+.feature-cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 720px;
+}
+
+.feature-card {
+  position: relative;
+  flex: 1;
+  background: var(--bg2);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  /* Subtle inner glow border effect */
+  outline: 1.5px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, outline-color 0.22s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+  outline-color: var(--accent);
+}
+
+/* Radial glow behind icon */
+.feature-card-glow {
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feature-card:hover .feature-card-glow { opacity: 1; }
+
+.feature-card-icon {
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.feature-card-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+.feature-card-desc {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ============================================================
+   LANDING SECTIONS — community + reflection previews
+   ============================================================ */
+.landing-section {
+  width: 100%;
+  padding: 3rem 2rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.landing-section-last {
+  padding-bottom: 3rem;
+}
+.landing-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.landing-section-title {
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text);
+  font-weight: normal;
+}
+.landing-section-link {
+  font-size: 12px;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s;
+}
+.landing-section-link:hover { opacity: 0.75; }
+
+/* 3-column card grid */
+.landing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Skeleton loader */
+.landing-card-skeleton {
+  border-radius: 14px;
+  background: var(--bg2);
+  height: 160px;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* Post preview card */
+.landing-post-card {
+  background: var(--bg2);
+  border-radius: 14px;
+  padding: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 160px;
+}
+.landing-post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+}
+.landing-post-card-kicker {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent2);
+  text-transform: uppercase;
+}
+.landing-post-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.landing-post-card-preview {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.65;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: italic;
+}
+.landing-post-card-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   THEME SWITCH — in profile page
+   ============================================================ */
+.profile-theme-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.profile-theme-label {
+  font-size: 13px;
+  color: var(--text2);
+}
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.theme-switch-track {
+  position: relative;
+  width: 52px;
+  height: 26px;
+  background: var(--bg3);
+  border-radius: 9999px;
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.theme-switch-dark,
+.theme-switch-light {
+  font-size: 12px;
+  color: var(--text3);
+  z-index: 1;
+  line-height: 1;
+}
+.theme-switch-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.25s ease;
+}
+/* Light mode: slide thumb to right */
+html[data-theme="light"] .theme-switch-thumb {
+  transform: translateX(26px);
+}
+.theme-switch-current {
+  font-size: 12px;
+  color: var(--text3);
+  min-width: 28px;
+}
+
+/* ============================================================
+   RESPONSIVE — landing sections
+   ============================================================ */
+@media (max-width: 600px) {
+  .feature-cards {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .feature-card { border-radius: 16px; padding: 1.25rem 1.25rem; }
+  .landing-section { padding: 2rem 1rem 0; }
+  .landing-section-last { padding-bottom: 2rem; }
+  .landing-cards-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .feature-cards { max-width: 100%; }
+  .landing-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Hide third card on tablet for cleaner 2-col look */
+  .landing-cards-grid .landing-post-card:nth-child(3),
+  .landing-cards-grid .landing-card-skeleton:nth-child(3) {
+    display: none;
+  }
+}
+
+/* ============================================================
+   STEP 1 — COMPREHENSIVE LIGHT THEME TEXT VISIBILITY FIXES
+   Covers every element that uses hardcoded colors not
+   controlled by CSS variables.
+   ============================================================ */
+
+/* ---- LANDING: hardcoded #ffffff title and #c8c4bc subtitle ---- */
+html[data-theme="light"] .landing-title {
+  color: #1a1208 !important; /* same near-black as the logo */
+  font-weight: 900;
+}
+html[data-theme="light"] .landing-title span {
+  color: var(--accent); /* keeps the warm brown on "Inshirah" */
+}
+html[data-theme="light"] .landing-sub {
+  color: #3d3028 !important;
+  font-weight: 600;
+}
+html[data-theme="light"] .landing-desc {
+  color: #5a4538 !important;
+}
+/* pillar-name uses hardcoded #b0aca6 */
+html[data-theme="light"] .pillar-name {
+  color: #5a4538 !important;
+}
+
+/* ---- NAV: nav-link hover uses hardcoded #fff ---- */
+html[data-theme="light"] .nav-link:hover {
+  color: #1e1a15 !important;
+}
+/* Nav active underline needs visible accent */
+html[data-theme="light"] .nav-link.active {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent);
+}
+/* Nav backdrop */
+html[data-theme="light"] nav {
+  background: #ffe8c8 !important;
+  border-bottom-color: rgba(41,36,31,0.14) !important;
+  backdrop-filter: none;
+}
+
+/* ---- SECTION HEADERS ---- */
+html[data-theme="light"] .section-title { color: #1e1a15; }
+html[data-theme="light"] .section-sub   { color: #7a6250; }
+
+/* ---- SIDEBAR LABEL uses var(--text3) which in light = #7a6250 — fine
+   but sidebar-label uppercase needs to be slightly darker ---- */
+html[data-theme="light"] .sidebar-label { color: #5a4538; }
+html[data-theme="light"] .sidebar-note  { color: #3d3028; }
+
+/* ---- READ ONLY BANNER ---- */
+html[data-theme="light"] .read-only-banner {
+  background: rgba(176,106,32,0.06);
+  border-bottom-color: rgba(176,106,32,0.15);
+  color: #7a6250;
+}
+
+/* ---- THREAD TAGS (anon + named) ---- */
+html[data-theme="light"] .thread-tag {
+  border-color: rgba(41,36,31,0.18);
+  color: #7a6250;
+}
+html[data-theme="light"] .thread-tag.anon {
+  border-color: rgba(176,106,32,0.25);
+  color: var(--accent2);
+}
+
+/* ---- PENDING BADGE ---- */
+html[data-theme="light"] .pending-badge {
+  background: rgba(176,106,32,0.10);
+  border-color: rgba(176,106,32,0.28);
+  color: var(--accent);
+}
+
+/* ---- ACHIEVEMENTS ---- */
+html[data-theme="light"] .ach-new-btn {
+  border-color: rgba(41,36,31,0.20);
+  color: #7a6250;
+}
+html[data-theme="light"] .ach-new-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(176,106,32,0.07);
+}
+
+/* ---- CHAT SIDEBAR LABEL ---- */
+html[data-theme="light"] .chat-sidebar-label { color: #5a4538; }
+html[data-theme="light"] .chat-sidebar-note  { color: #7a6250; }
+/* Chat user items */
+html[data-theme="light"] .chat-user-item.active {
+  background: rgba(176,106,32,0.10);
+}
+html[data-theme="light"] .chat-user-item:hover {
+  background: #ffedd9;
+}
+
+/* ---- CHAT MESSAGES send button ---- */
+html[data-theme="light"] .chat-send {
+  background: rgba(176,106,32,0.12);
+  border-color: var(--accent2);
+  color: var(--accent);
+}
+
+/* ---- MODALS: anon toggle, hint text ---- */
+html[data-theme="light"] .anon-toggle { color: #7a6250; }
+html[data-theme="light"] .modal-body p,
+html[data-theme="light"] .modal-body div[style*="font-size:11px"],
+html[data-theme="light"] .modal-body div[style*="font-size:14px"] {
+  color: #3d3028;
+}
+html[data-theme="light"] .modal-close { color: #7a6250; }
+html[data-theme="light"] .modal-close:hover { color: #1e1a15; }
+
+/* ---- REPLIES SECTION ---- */
+html[data-theme="light"] .replies-label   { color: #5a4538; }
+html[data-theme="light"] .replies-count   { color: #7a6250; }
+html[data-theme="light"] .replies-empty   { color: #7a6250; }
+html[data-theme="light"] .reply-item {
+  border-bottom-color: rgba(41,36,31,0.09);
+}
+html[data-theme="light"] .reply-input-wrap {
+  border-top-color: rgba(41,36,31,0.09);
+}
+html[data-theme="light"] .reply-login-note {
+  color: #7a6250;
+  border-top-color: rgba(41,36,31,0.09);
+}
+
+/* ---- PROFILE PAGE ---- */
+html[data-theme="light"] .profile-bio-input {
+  background: #ffedd9 !important;
+  color: #1e1a15 !important;
+  border-color: rgba(41,36,31,0.18) !important;
+}
+html[data-theme="light"] .profile-bio-input::placeholder {
+  color: #9a8472;
+}
+html[data-theme="light"] .profile-bio-section {
+  border-top-color: rgba(41,36,31,0.10);
+}
+html[data-theme="light"] .profile-theme-toggle {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- LOADING ROWS ---- */
+html[data-theme="light"] .loading-row    { color: #7a6250; }
+html[data-theme="light"] .ws-empty       { color: #7a6250; }
+
+/* ---- DISCLAIMER MODAL text ---- */
+html[data-theme="light"] #consult-disclaimer-modal .modal-body p {
+  color: #3d3028;
+}
+html[data-theme="light"] #consult-disclaimer-modal strong {
+  color: #1e1a15;
+}
+
+/* ---- PRIVACY POLICY ---- */
+html[data-theme="light"] .policy-layout p  { color: #3d3028; }
+html[data-theme="light"] .policy-layout h1 { color: #1e1a15; }
+html[data-theme="light"] .policy-layout h2 { color: #5a4538; }
+html[data-theme="light"] .policy-date      { color: #7a6250; }
+
+/* ---- SCROLL SENTINEL — no visual impact needed ---- */
+
+/* ---- DARK THEME — also audit hardcoded colors ----
+   One hardcoded color that breaks dark mode:
+   .landing-title uses color: #ffffff which is correct for dark
+   but .pillar-name uses #b0aca6 which is fine on dark.
+   The only dark-mode hardcoded issue is nav-link hover = #fff
+   which is correct on dark. No changes needed for dark.    */
+
+/* ---- NAV ACTIVE STATE contrast improvement (both themes) ---- */
+.nav-link.active {
+  font-weight: 700;
+}
+
+/* ============================================================
+   LIGHT THEME — hero title black text + black button text
+   ============================================================ */
+
+/* "The" and "Program" — force black, keep "Inshirah" accent */
+html[data-theme="light"] .landing-title {
+  color: #1e1a15 !important;
+}
+html[data-theme="light"] .landing-title span {
+  color: var(--accent) !important;
+}
+
+/* CTA buttons on hero — black text on both */
+html[data-theme="light"] .btn-ghost {
+  color: #1e1a15 !important;
+  border-color: rgba(41,36,31,0.30) !important;
+}
+html[data-theme="light"] .btn-ghost:hover {
+  color: #1e1a15 !important;
+  border-color: var(--accent) !important;
+}
+html[data-theme="light"] .btn-accent {
+  color: #1e1a15 !important;
+}
+html[data-theme="light"] .btn-accent:hover {
+  color: #1e1a15 !important;
+}
+
+/* ============================================================
+   STEP 2a — COMMUNITY: PORTRAIT CARD GRID
+   Replaces the flat bordered list with lifted cards.
+   Portrait = taller than wide. Shadow + hairline border
+   that animates on hover. Soft human rounding.
+   Works on both dark and light themes via CSS vars.
+   ============================================================ */
+
+/* Forum layout: sidebar stays, main becomes card container */
+.forum-main {
+  border-right: none !important; /* remove the hard divider */
+  padding: 1.5rem 1.5rem 2rem;
+}
+
+/* Card grid — 2 columns, portrait proportion */
+.thread-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start; /* cards don't stretch to match each other */
+}
+
+/* Individual card — replaces the old flat .thread-item */
+.thread-item {
+  background: var(--bg2) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem 1.5rem 1.25rem !important;
+  border-bottom: none !important;
+  cursor: pointer;
+  position: relative;
+
+  /* Hairline border — invisible at rest, glows in on hover */
+  outline: 1px solid transparent;
+  transition:
+    outline-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.22s ease,
+    background 0.15s ease !important;
+
+  /* Lifted shadow at rest */
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.10),
+    0 1px 2px rgba(0,0,0,0.06);
+}
+
+.thread-item:hover {
+  background: var(--bg2) !important; /* keep bg steady */
+  transform: translateY(-4px);
+  outline-color: var(--accent2); /* hairline border animates in */
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.18),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Tag stays the same but sits flush with no extra bottom border */
+.thread-item .thread-tag {
+  margin-bottom: 8px;
+}
+
+/* Title slightly larger now it has breathing room */
+.thread-item .thread-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* Preview — 3 lines instead of 2 to fill portrait height */
+.thread-item .thread-preview {
+  -webkit-line-clamp: 3 !important;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+/* Meta row at the bottom */
+.thread-item .thread-meta {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  gap: 10px;
+}
+
+/* Delete button repositioned for card layout */
+.thread-item .thread-delete-btn {
+  top: 0.85rem;
+  right: 0.85rem;
+}
+
+/* Loading row spans full grid width */
+.thread-list .loading-row {
+  grid-column: 1 / -1;
+}
+
+/* Scroll sentinel spans full width too */
+.thread-list .scroll-sentinel {
+  grid-column: 1 / -1;
+}
+
+/* ---- FORUM SIDEBAR: soften for card context ---- */
+.forum-sidebar {
+  padding: 1.5rem 1rem;
+  border-left: 1px solid var(--border);
+}
+
+/* ---- LIGHT THEME: cards need slightly deeper shadow ---- */
+html[data-theme="light"] .thread-item {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 2px 12px rgba(41,36,31,0.08),
+    0 1px 3px rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .thread-item:hover {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 10px 36px rgba(41,36,31,0.14),
+    0 2px 8px rgba(41,36,31,0.06);
+  outline-color: var(--accent);
+}
+html[data-theme="light"] .thread-item .thread-meta {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- MOBILE: single column cards ---- */
+@media (max-width: 600px) {
+  .forum-main { padding: 1rem 0.75rem 2rem; }
+  .thread-list { grid-template-columns: 1fr; gap: 12px; }
+  .thread-item { padding: 1.25rem !important; border-radius: 14px !important; }
+  .thread-item:hover { transform: translateY(-2px); }
+}
+
+/* ---- TABLET: 2 columns stay but tighter gap ---- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .forum-main { padding: 1.25rem 1rem 2rem; }
+  .thread-list { gap: 12px; }
+}
+
+/* ============================================================
+   STEP 2b-1 — AMBITIONS: PORTRAIT CARD GRID
+   Replaces the flat 1px-gap tile grid with lifted cards.
+   Matches the Community card treatment — same shadow,
+   same hairline border animation, same rounding language.
+   ============================================================ */
+
+/* Grid container — remove the 1px border trick, use proper gap */
+.ambitions-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: 16px !important;
+  background: transparent !important; /* was var(--border) — no longer needed */
+  padding: 1.5rem !important;
+  align-items: start;
+}
+
+/* Individual achievement card */
+.achievement-card {
+  background: var(--bg2) !important;
+  border-radius: 16px !important;
+  padding: 1.75rem 1.5rem 1.5rem !important;
+  cursor: pointer;
+  position: relative;
+
+  /* Hairline border — invisible at rest */
+  outline: 1px solid transparent;
+  transition:
+    outline-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.22s ease,
+    background 0.15s ease !important;
+
+  /* Lifted shadow at rest */
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.10),
+    0 1px 3px rgba(0,0,0,0.06);
+
+  /* Ensure portrait proportion via min-height */
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-card:hover {
+  background: var(--bg2) !important;
+  transform: translateY(-4px);
+  outline-color: var(--accent2);
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.18),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Title — more breathing room */
+.achievement-card .ach-title {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+/* User + date grouped at bottom */
+.achievement-card .ach-user {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  letter-spacing: 0.04em;
+}
+
+.achievement-card .ach-date {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+/* "Share a milestone" add button — card style too */
+.ach-new-btn {
+  background: transparent !important;
+  border: 1px dashed var(--border2) !important;
+  border-radius: 16px !important;
+  color: var(--text3);
+  padding: 1.75rem 1.5rem !important;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 160px;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease !important;
+}
+.ach-new-btn:hover {
+  border-color: var(--accent2) !important;
+  color: var(--accent);
+  background: var(--accent-dim2) !important;
+}
+
+/* ---- LIGHT THEME overrides ---- */
+html[data-theme="light"] .achievement-card {
+  background: #fff7e8 !important;
+  box-shadow:
+    0 2px 12px rgba(41,36,31,0.08),
+    0 1px 3px rgba(41,36,31,0.05);
+}
+html[data-theme="light"] .achievement-card:hover {
+  background: #fff7e8 !important;
+  outline-color: var(--accent);
+  box-shadow:
+    0 10px 36px rgba(41,36,31,0.13),
+    0 2px 8px rgba(41,36,31,0.06);
+}
+html[data-theme="light"] .achievement-card .ach-user {
+  border-top-color: rgba(41,36,31,0.10);
+}
+
+/* ---- MOBILE: tighter but still cards ---- */
+@media (max-width: 600px) {
+  .ambitions-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    padding: 1rem !important;
+  }
+  .achievement-card {
+    padding: 1.25rem 1rem 1.1rem !important;
+    border-radius: 14px !important;
+    min-height: 140px;
+  }
+  .achievement-card:hover { transform: translateY(-2px); }
+  .ach-new-btn {
+    min-height: 140px;
+    border-radius: 14px !important;
+  }
+}
+
+/* ---- TABLET: keep auto-fill, slightly tighter gap ---- */
+@media (min-width: 601px) and (max-width: 900px) {
+  .ambitions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
