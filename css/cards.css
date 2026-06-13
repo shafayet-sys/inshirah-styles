@@ -1,5 +1,8 @@
-   /*FEATURE CARDS — replaces pillars
+/* ============================================================
+   CARDS — feature cards, landing sections, theme switch,
+   community portrait cards, ambitions portrait cards
    ============================================================ */
+
 .feature-cards {
   display: flex;
   gap: 16px;
