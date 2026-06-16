@@ -32,3 +32,6 @@ nav {
 .btn-delete { background: rgba(180,80,80,0.12); border: 1px solid rgba(180,80,80,0.3); color: #e08080; }
 .btn-delete:hover { background: rgba(180,80,80,0.22); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+
+.nav-toggle-btn { display: none }
