@@ -33,5 +33,4 @@ nav {
 .btn-delete:hover { background: rgba(180,80,80,0.22); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-
 .nav-toggle-btn { display: none }
