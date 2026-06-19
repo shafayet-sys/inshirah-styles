@@ -129,9 +129,15 @@
   grid-template-columns: 260px 1fr;
   gap: 0;
   min-height: calc(100vh - 120px);
+  margin: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 .profile-card {
   border-right: 1px solid var(--border);
+  background: var(--bg2);
+  border-radius: 16px 0 0 16px;
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -196,6 +202,11 @@
   padding: 1.75rem 2rem;
 }
 
+.profile-posts-section {
+  background: var(--bg2);
+  border-radius: 0 16px 16px 0;
+  padding: 1.75rem 2rem;
+}
 /* ============================================================
    PROFILE POP CARD
    Small floating card that appears when clicking any username
@@ -211,7 +222,7 @@
   max-width: 240px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
   display: none;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 #profile-pop-card.visible { display: block; }
 .pop-card-avatar {
