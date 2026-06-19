@@ -20,8 +20,8 @@
 .msg.them { align-self: flex-start; }
 .msg.me   { align-self: flex-end; }
 .msg-bubble { padding: 10px 14px; font-size: 14px; line-height: 1.6; }
-.msg.them .msg-bubble { background: var(--bg3); border: 1px solid var(--border); color: var(--text); border-radius: 0 6px 6px 6px; }
-.msg.me   .msg-bubble { background: var(--accent-dim); border: 1px solid var(--accent2); color: var(--text); border-radius: 6px 0 6px 6px; }
+.msg.them .msg-bubble { background: var(--bg3); border: 1px solid var(--border); color: var(--text); border-radius: 4px 16px 16px 16px; }
+.msg.me   .msg-bubble { background: var(--accent-dim); border: 1px solid var(--accent2); color: var(--text); border-radius: 16px 4px 16px 16px; }
 .msg-time { font-size: 10px; color: var(--text3); margin-top: 4px; display: flex; align-items: center; gap: 6px; }
 .msg.me .msg-time { justify-content: flex-end; }
 /* delete button on messages — appears on hover */
@@ -35,7 +35,7 @@
 .msg-delete-btn:hover { color: #e08080; }
 .privacy-note { font-size: 11px; color: var(--text3); padding: 6px 1.5rem; text-align: center; font-style: italic; border-top: 1px solid var(--border); flex-shrink: 0; }
 .chat-input-row { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 8px; flex-shrink: 0; }
-.chat-input { flex: 1; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); font-family: var(--font); font-size: 14px; padding: 8px 12px; outline: none; }
+.chat-input { flex: 1; background: var(--bg3); border: 1px solid var(--border2); color: var(--text); font-family: var(--font); font-size: 14px; padding: 10px 14px; outline: none; border-radius: 20px; }
 .chat-input:focus { border-color: var(--accent2); }
-.chat-send { background: var(--accent-dim); border: 1px solid var(--accent2); color: var(--accent); font-family: var(--font); font-size: 13px; padding: 8px 16px; cursor: pointer; transition: background 0.2s; }
+.chat-send { background: var(--accent-dim); border: 1px solid var(--accent2); color: var(--accent); font-family: var(--font); font-size: 13px; padding: 8px 16px; cursor: pointer; transition: background 0.2s; border-radius: 20px; }
 .chat-send:hover { background: rgba(122,154,184,0.2); }

@@ -1,4 +1,4 @@
-   MOBILE NAV — collapsible horizontal row
+/*  MOBILE NAV — collapsible horizontal row
    ============================================================ */
 
 /* The toggle button — hidden on desktop */
@@ -160,20 +160,26 @@
   .article-body  { font-size: 13px; }
 
   /* ---- PROFILE PAGE ---- */
-  .profile-page-layout {
-    grid-template-columns: 1fr;
-    display: flex;
-    flex-direction: column;
-  }
-  .profile-card {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 1rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 12px;
-  }
+.profile-page-layout {
+  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border-radius: 14px;
+}
+.profile-card {
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 14px 14px 0 0;
+  padding: 1.5rem 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+.profile-posts-section {
+  border-radius: 0 0 14px 14px;
+}
   .profile-card-avatar {
     width: 48px; height: 48px;
     font-size: 18px;
