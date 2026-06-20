@@ -751,3 +751,42 @@ html[data-theme="light"] .achievement-card .ach-user {
     gap: 12px !important;
   }
 }
+
+/* ============================================================
+   STEP 3d — ENTRANCE FADE-IN ANIMATIONS
+   Applied to all card types: community threads, ambitions,
+   reflection articles, landing preview cards.
+   Uses IntersectionObserver-friendly class toggle pattern.
+   ============================================================ */
+.thread-item,
+.achievement-card,
+.article-item,
+.landing-post-card {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: card-fade-in 0.5s ease forwards;
+}
+
+@keyframes card-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger children slightly using nth-child for a natural cascade */
+.thread-item:nth-child(1), .achievement-card:nth-child(1), .article-item:nth-child(1), .landing-post-card:nth-child(1) { animation-delay: 0.03s; }
+.thread-item:nth-child(2), .achievement-card:nth-child(2), .article-item:nth-child(2), .landing-post-card:nth-child(2) { animation-delay: 0.08s; }
+.thread-item:nth-child(3), .achievement-card:nth-child(3), .article-item:nth-child(3), .landing-post-card:nth-child(3) { animation-delay: 0.13s; }
+.thread-item:nth-child(4), .achievement-card:nth-child(4), .article-item:nth-child(4) { animation-delay: 0.18s; }
+.thread-item:nth-child(5), .achievement-card:nth-child(5), .article-item:nth-child(5) { animation-delay: 0.23s; }
+.thread-item:nth-child(6), .achievement-card:nth-child(6), .article-item:nth-child(6) { animation-delay: 0.28s; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .thread-item, .achievement-card, .article-item, .landing-post-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
