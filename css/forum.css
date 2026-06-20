@@ -7,7 +7,7 @@
 .thread-tag { display: inline-block; font-size: 10px; letter-spacing: 0.1em; padding: 2px 8px; border: 1px solid var(--border2); color: var(--text3); margin-bottom: 6px; text-transform: uppercase; }
 .thread-tag.anon { border-color: rgba(122,154,184,0.2); color: var(--accent2); }
 .thread-title   { font-size: 15px; color: var(--text); margin-bottom: 4px; }
-.thread-preview { font-size: 13px; color: var(--text2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.thread-preview { font-size: 13px; color: var(--text2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;-webkit-box-orient: vertical; overflow: hidden; }
 .thread-meta    { display: flex; gap: 12px; margin-top: 8px; }
 .thread-meta span { font-size: 11px; color: var(--text3); }
 /* delete button on thread items */

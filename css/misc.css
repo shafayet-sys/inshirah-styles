@@ -47,6 +47,27 @@ textarea.form-input { resize: vertical; }
 .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 8px; justify-content: flex-end; }
 .anon-toggle  { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text3); margin-top: 10px; cursor: pointer; }
 .anon-toggle input { accent-color: var(--accent); }
+/* ---- MARKDOWN TOOLBAR ---- */
+.md-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.md-toolbar button {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.md-toolbar button:hover {
+  background: var(--bg3);
+}
 
 /* ---- FOOTER ---- */
 footer { background: var(--footer-bg); border-top: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 2rem 1.5rem; }
